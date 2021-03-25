@@ -8,7 +8,8 @@
         "build": "webpack --mode production --config config/webpack.prod.ts",
         "test": "npm run test",
         "lint": "eslint --ext .js,.jsx,.ts,.tsx",
-        "lint:fix": "npm run lint -- --fix"
+        "lint:fix": "npm run lint -- --fix",
+        "postinstall": "husky install"
     },
     "author": "Ryan Le",
     "license": "ISC",
