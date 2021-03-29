@@ -14,6 +14,7 @@ module.exports = {
     'react/prop-types': 'off',
     'import/no-named-default': 'off',
     'import/no-unresolved': 'off',
+    'implicit-arrow-linebreak': 'off',
     'import/no-named-as-default': 0,
     'no-param-reassign': [
       'error',

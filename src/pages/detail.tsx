@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { increment, decrement, State } from '@store';
+// eslint-disable-next-line object-curly-newline
+import { increment, decrement, State, testNavigateInRedux } from '@store';
 
 const Detail: FunctionComponent = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,9 @@ const Detail: FunctionComponent = () => {
       <h1>{counterValue}</h1>
       <button type="button" onClick={() => dispatch(decrement())}>
         Decrease
+      </button>
+      <button type="button" onClick={() => dispatch(testNavigateInRedux())}>
+        Navigate Back
       </button>
     </div>
   );

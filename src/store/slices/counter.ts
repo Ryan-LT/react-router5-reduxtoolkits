@@ -1,4 +1,10 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { ThunkExtra } from '@store';
+
+export const testNavigateInRedux = createAsyncThunk<{}, void, ThunkExtra>(
+  'counter/navigate',
+  (_payload, { extra: { router } }) => router.navigate('home'),
+);
 
 export const {
   reducer: counterReducer,
@@ -18,5 +24,8 @@ export const {
     increaseByAmount: (state, action) => {
       state.value += action.payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(testNavigateInRedux.fulfilled, (state) => state);
   },
 });
