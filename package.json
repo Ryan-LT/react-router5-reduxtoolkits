@@ -77,7 +77,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged  && tsc --noEmit && npm run jest:all"
+      "pre-commit": "tsc --noEmit && npm run jest:all"
     }
   },
   "lint-staged": {
