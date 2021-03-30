@@ -75,11 +75,6 @@
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run test && tsc --noEmit"
-    }
-  },
   "lint-staged": {
     "./src/**/*.{js,ts,jsx,tsx}": [
       "eslint",
