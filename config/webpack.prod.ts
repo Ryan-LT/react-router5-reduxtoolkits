@@ -1,26 +1,28 @@
-import path from "path";
-import webpack from "webpack";
-import HtmlWebPackPlugin from "html-webpack-plugin";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
+import path from 'path';
+import webpack from 'webpack';
+import HtmlWebPackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 
 const config: webpack.Configuration = {
-  mode: "production",
-  entry: "./src/index.tsx",
+  mode: 'production',
+  entry: './src/index.tsx',
   output: {
-    path: path.resolve(__dirname, "../dist"),
-    filename: "[name].[fullhash].bundle.js",
-    publicPath: "/",
+    path: path.resolve(__dirname, '../dist'),
+    filename: '[name].[fullhash].bundle.js',
+    publicPath: '/',
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".json"],
+    extensions: ['.ts', '.tsx', '.js', '.json'],
+    plugins: [new TsconfigPathsPlugin()],
   },
 
   module: {
     rules: [
       {
         test: /\.ts(x?)$/,
-        loader: "ts-loader",
+        loader: 'ts-loader',
         exclude: /node_modules/,
       },
       {
@@ -28,17 +30,17 @@ const config: webpack.Configuration = {
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               importLoaders: 1,
             },
           },
-          "sass-loader",
+          'sass-loader',
         ],
       },
       {
         test: /\.(?:ico|gif|png|jpg|jpeg|webp|svg)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
       },
     ],
   },
@@ -49,20 +51,20 @@ const config: webpack.Configuration = {
       ignoreOrder: false,
     }),
     new HtmlWebPackPlugin({
-      template: "./public/index.html",
-      favicon: "./public/favicon.ico",
+      template: './public/index.html',
+      favicon: './public/favicon.ico',
       hash: true,
     }),
   ],
   optimization: {
-    minimizer: [new CssMinimizerPlugin(), "..."],
-    runtimeChunk: "multiple",
+    minimizer: [new CssMinimizerPlugin(), '...'],
+    runtimeChunk: 'multiple',
     splitChunks: {
       cacheGroups: {
         vendor: {
           test: /[\\/]node_modules[\\/](react|react-dom|axios|redux|react-redux)[\\/]/,
-          name: "vendors",
-          chunks: "all",
+          name: 'vendors',
+          chunks: 'all',
           enforce: true,
         },
       },

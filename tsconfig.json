@@ -20,6 +20,7 @@
       "@tests": ["./src/tests"],
       "@types": ["./src/types"],
       "@router": ["./src/router"],
+      "@pages": ["./src/pages"],
       "@helpers": ["./src/helpers"],
       "@services": ["./src/services"],
       "@components": ["./src/components"],
@@ -27,6 +28,6 @@
       "@assets/*": ["./src/assets/*"]
     }
   },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
+  "include": ["./src/**/*.ts", "./src/**/*.tsx", "./tests/**/*.tsx"],
   "exclude": ["/node_modules", "./dist", "./build", "./config"]
 }
