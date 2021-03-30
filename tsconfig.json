@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "skipLibCheck": true,
     "experimentalDecorators": true,
     "outDir": "./dist/",
     "noImplicitAny": true,
@@ -29,5 +30,5 @@
     }
   },
   "include": ["./src/**/*.ts", "./src/**/*.tsx", "./tests/**/*.tsx"],
-  "exclude": ["/node_modules", "./dist", "./build", "./config"]
+  "exclude": ["./node_modules/**/*", "./dist/**/*", "./build/**/*", "./config"]
 }
