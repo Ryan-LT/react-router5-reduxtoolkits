@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { router5Reducer } from 'redux-router5';
 import { Router } from 'router5';
-import { store } from 'src';
+import { store } from 'src/renderApp';
 import { counterReducer, detailReducer, homeReducer } from './slices';
 
 export const createStore = (router: Router) =>

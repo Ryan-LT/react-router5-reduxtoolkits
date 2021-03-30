@@ -2,10 +2,12 @@ import React, { FC, ReactElement } from 'react';
 import { render, RenderOptions } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router5';
-import { router } from '../src/router';
-import { createStore } from '../src/store/create-store';
+import { router, configureRouter } from '@router';
+import { createStore } from '@store';
 
 export const store = createStore(router);
+
+configureRouter(store);
 
 const Providers: FC = ({ children }) => (
   <Provider store={store}>

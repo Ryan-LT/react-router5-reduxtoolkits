@@ -9,6 +9,7 @@ module.exports = {
   setupFilesAfterEnv: ['jest-extended', '@testing-library/jest-dom'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   moduleNameMapper: {
+    '@components': '<rootDir>/src/components',
     '@pages': '<rootDir>/src/pages',
     '@store': '<rootDir>/src/store',
     '@router': '<rootDir>/src/router',
